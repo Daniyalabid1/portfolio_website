@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 
-const isProd = process.env.NODE_ENV === "production";
+// Only use the repo subpath when building for GitHub Pages (set GITHUB_PAGES=true).
+const isGhPages = process.env.GITHUB_PAGES === "true";
 
 const nextConfig = {
   reactStrictMode: true,
@@ -11,8 +12,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: isProd ? "/portfolio_website" : "",
-  assetPrefix: isProd ? "/portfolio_website/" : "",
+  basePath: isGhPages ? "/portfolio_website" : "",
+  assetPrefix: isGhPages ? "/portfolio_website/" : "",
 };
 
 export default nextConfig;
