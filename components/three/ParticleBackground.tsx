@@ -45,7 +45,7 @@ function ParticleNet() {
     }
 
     if (pointsRef.current) {
-      const attr = pointsRef.current.geometry.attributes.position;
+      const attr = pointsRef.current.geometry.attributes.position as THREE.BufferAttribute;
       attr.set(pos);
       attr.needsUpdate = true;
     }
